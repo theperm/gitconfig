@@ -77,8 +77,11 @@ r = reset
 r1 = reset HEAD^
 r2 = reset HEAD^^
 rh = reset --hard
-rh1 = reset HEAD^ --hard
-rh2 = reset HEAD^^ --hard
+rh1 = reset --hard HEAD^ 
+rh2 = reset --hard HEAD^^
+rs = reset --soft
+rs1 = reset --soft HEAD^
+rs2 = reset --soft HEAD^^
 
 #git svn
 svnr = svn rebase
