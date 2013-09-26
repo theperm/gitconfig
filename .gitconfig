@@ -87,6 +87,8 @@ sl = stash list
 sa = stash apply
 ss = stash save
 sp = stash pop 
+sc = stash clear
+sd = stash drop
 
 #assume aliases
 assume = update-index --assume-unchanged
