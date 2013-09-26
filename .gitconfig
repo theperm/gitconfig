@@ -1,6 +1,6 @@
 [user]
-	name = Jonny Garrett
-	email = jgarrett303@gmail.com
+    name = Jonathan Garrett (e20157)
+    email = Jonathan.Garrett@cmegroup.com
 [core]
 	autocrlf = true
 
@@ -177,26 +177,33 @@ done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} gi
 
 
 [gui]
+    recentrepo = C:/workspace/source/cmed_perf_repos/cmed_perf
 
 [merge]
-	keepBackup = false;
-	tool = p4merge
-#	tool = bc3
+    keepBackup = false;
+    tool = p4merge
+#   tool = bc3
 
 [mergetool "p4merge"]
-	keepTemporaries = false
-	trustExitCode = false
-	keepBackup = false
+    #cmd = \"c:/workspace/oss/perforce/p4merge.exe\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+    keepTemporaries = false
+    trustExitCode = false
+    keepBackup = false
+    path = c:/workspace/oss/Perforce/p4merge.exe
 
 [mergetool "bc3"]
+    path = c:/program files (x86)/beyond compare 3/bcomp.exe
 
 [diff]
-  	memonicprefix = true
-	tool = p4merge
-	
+    memonicprefix = true
+    tool = p4merge
+    
 [difftool "p4mergetool"]
+    path = c:/workspace/oss/Perforce/p4merge.exe
+    cmd = \"c:/workspace/oss/perforce/p4merge.exe\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 
 [difftool "bc3"]
+    path = c:/program files (x86)/beyond compare 3/bcomp.exe
 
 #[difftool "sourcetree"]
 #	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
