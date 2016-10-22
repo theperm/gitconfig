@@ -1,9 +1,11 @@
 [user]
 	name = Jonathan Garrett (e20157)
-	email = Jonathan.Garrett@cmegroup.com
+	email = jonathan.garrett@cmegroup.com
 [core]
 	autocrlf = true
 	excludesfile = C:\\Users\\E20157\\Documents\\gitignore_global.txt
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	#whitespace = cr-at-eol
 
 [color]
     branch = auto
@@ -42,7 +44,7 @@
 
 alist = config --get-regexp alias
 cp = cherry-pick
-s = status -s
+s = status -sb
 st = status
 cl = clone
 ci = commit
@@ -94,6 +96,10 @@ ss = stash save
 sp = stash pop 
 sc = stash clear
 sd = stash drop
+sdiff = stash show -p
+sdiff1 = stash show -p stash@{1}
+sdiff2 = stash show -p stash@{2}
+sdiff3 = stash show -p stash@{3}
 
 #assume aliases
 assume = update-index --assume-unchanged
@@ -133,17 +139,27 @@ lc  = "!f() { git ll "$1"^.."$1"; }; f"
 lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
 
 ignored = ls-files -o -i --exclude-standard
-ign = ls-files -o -i --exclude-standard
+ign = ignored
+cleanf = clean -f
+cleand = clean -d
+cleanfd = clean -f -d
+cleanignored = clean -f -X
+cleanx = clean -f -X
+cleanall = clean -fd -X
+cleanalldry = clean -fd -X -n
+
+rerereforget = rerere forget
 
 #list all aliases
 la = "!git config -l | grep alias | cut -c 7-"
 
-diff = diff --word-diff
-d = diff --word-diff
+#diff = diff --word-diff
+d = diff
 diffc = diff --cached
 dc = diff --cached
 diffs = diff --staged
 ds = diff --staged
+dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
 
 #http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
 
@@ -185,7 +201,6 @@ done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} gi
 
 
 [gui]
-	recentrepo = C:/workspace/source/cmed_perf_repos/cmed_perf
 
 [merge]
 	keepBackup = false;
@@ -194,11 +209,11 @@ done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} gi
 #	tool = bc3
 
 [mergetool "p4merge"]
-	#cmd = \"c:/workspace/oss/perforce/p4merge.exe\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	#cmd = \"C:\Program Files\Perforce\p4merge.exe" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	keepTemporaries = false
 	trustExitCode = false
 	keepBackup = false
-	path = c:/workspace/oss/Perforce/p4merge.exe
+	path = C:/Program Files/Perforce/p4merge.exe
 
 [mergetool "bc3"]
 	path = c:/program files (x86)/beyond compare 3/bcomp.exe
@@ -206,10 +221,11 @@ done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} gi
 [diff]
   	memonicprefix = true
 	tool = p4merge
+	compactionHeuristic = true
 	
 [difftool "p4mergetool"]
-	path = c:/workspace/oss/Perforce/p4merge.exe
-	cmd = \"c:/workspace/oss/perforce/p4merge.exe\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	path = C:/Program Files/Perforce/p4merge.exe
+	#cmd = \"C:\Program Files\Perforce\p4merge.exe" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 
 [difftool "bc3"]
 	path = c:/program files (x86)/beyond compare 3/bcomp.exe
@@ -223,3 +239,6 @@ done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} gi
 
 [rerere]
 	enabled = true
+[gui]
+	recentrepo = C:/Workspace/source/source
+
