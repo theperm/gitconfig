@@ -1,6 +1,6 @@
 [user]
-	name = Jonathan Garrett (e20157)
-	email = jonathan.garrett@cmegroup.com
+	name = Jonny Garrett
+	email = jgarrett303@gmail.com
 [core]
 	autocrlf = true
 	excludesfile = C:\\Users\\E20157\\Documents\\gitignore_global.txt
@@ -157,6 +157,7 @@ la = "!git config -l | grep alias | cut -c 7-"
 d = diff
 diffc = diff --cached
 dc = diff --cached
+
 diffs = diff --staged
 ds = diff --staged
 dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
@@ -216,7 +217,6 @@ done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} gi
 	path = C:/Program Files/Perforce/p4merge.exe
 
 [mergetool "bc3"]
-	path = c:/program files (x86)/beyond compare 3/bcomp.exe
 
 [diff]
   	memonicprefix = true
@@ -228,7 +228,6 @@ done = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} gi
 	#cmd = \"C:\Program Files\Perforce\p4merge.exe" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 
 [difftool "bc3"]
-	path = c:/program files (x86)/beyond compare 3/bcomp.exe
 
 #[difftool "sourcetree"]
 #	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
